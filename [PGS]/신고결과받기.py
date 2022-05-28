@@ -28,3 +28,17 @@ def solution(id_list, report, k):
         answer.append(m_n[i])   
 
     return answer
+
+
+
+# 숏코드
+def solution(id_list, report, k):
+    
+    report=set(report)
+    re_n={i:0 for i in id_list}
+    
+    for i in report:
+        re_n[i.split()[1]]+=1
+    m_l=[i.split()[0] for i in report if re_n[i.split()[1]] >=k]
+    answer=[m_l.count(i) for i in id_list]
+    return answer
